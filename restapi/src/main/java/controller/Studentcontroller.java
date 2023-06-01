@@ -27,6 +27,7 @@ public Student getStudentById(@PathVariable("studentId")String studentId) {
 }
 @GetMapping("/student/{studentId}")
 public Student updateStudent(@PathVariable("studentId") String studentId,@RequestBody student s) {
+	int id=Integer.parseInt(studentId);
 	Optional<Student> obj=sr.findById(id);
 	s.setId(obj.get().getId());
 	sr.save();
